@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monitor de Água</title>
+    <meta name="theme-color" content="#07111f" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">ESP32 • HC-SR04</p>
+          <h1>Monitor de Água</h1>
+        </div>
+        <div class="status"><span></span> CONECTANDO...</div>
+      </header>
+
+      <section class="hero">
+        <div class="copy">
+          <p class="eyebrow">NÍVEL DO RESERVATÓRIO</p>
+          <div class="percentage"><span id="percentage">58</span><small>%</small></div>
+          <p class="description">Controle visual do nível em tempo real.</p>
+
+          <div class="metrics">
+            <div class="metric">
+              <span>Distância</span>
+              <strong><span id="distance">7.04</span> cm</strong>
+            </div>
+            <div class="metric">
+              <span>Status</span>
+              <strong id="levelStatus">Nível normal</strong>
+            </div>
+          </div>
+
+          <div class="control" style="margin-top:25px">
+            <span>Atualização automática</span>
+            <strong style="display:block;margin-top:8px;color:#91aabd;font-size:13px;text-transform:none;letter-spacing:0">ESP32 → Wi-Fi → site • a cada 1 segundo</strong>
+          </div>
+        </div>
+
+        <div class="tank-wrap">
+          <div class="tank">
+            <div class="tank-glow"></div>
+            <div class="water" id="water">
+              <div class="wave wave-back"></div>
+              <div class="wave wave-front"></div>
+              <div class="bubbles" id="bubbles"></div>
+            </div>
+            <div class="glass-highlight"></div>
+            <div class="measurement top">100%</div>
+            <div class="measurement bottom">0%</div>
+          </div>
+          <p class="tank-label">RESERVATÓRIO</p>
+        </div>
+      </section>
+
+      <footer>
+        <span>Última atualização: <b id="updated">agora</b></span>
+        <span>Calibração: 1,80 cm — 13,20 cm</span>
+      </footer>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
